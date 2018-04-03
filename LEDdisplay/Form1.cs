@@ -16,5 +16,15 @@ namespace LEDdisplay
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(textBox1.Text);
+        }
+
+        private int GetStringLength(string str)
+        {
+            return str.Length;
+        }
     }
 }
