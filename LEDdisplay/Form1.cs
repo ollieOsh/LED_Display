@@ -17,14 +17,28 @@ namespace LEDdisplay
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool CheckStringIsAlphaNum(string str)
         {
-            MessageBox.Show(textBox1.Text);
+            return str.All(char.IsLetterOrDigit);
         }
 
-        private int GetStringLength(string str)
+        private void button1_Click(object sender, EventArgs e)
         {
-            return str.Length;
+            string input = textBox1.Text;
+            bool isAlphaNum = CheckStringIsAlphaNum(input);
+
+            if(isAlphaNum && input.Length < 101)
+            {
+                textBox2.Text = input;
+            }
+            else if(!isAlphaNum)
+            {
+                MessageBox.Show("Please remove any special characters");
+            }
+            else
+            {
+                MessageBox.Show("Your input is too long");
+            }
         }
     }
 }
